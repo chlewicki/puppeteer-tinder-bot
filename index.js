@@ -5,7 +5,9 @@ require('dotenv').config();
     const browser = await puppeteer.launch({
         headless: false
     });
-
+    const context = browser.defaultBrowserContext();
+    //        URL                  An array of permissions
+    context.overridePermissions("https://tinder.com", ["geolocation", "notifications"]);
     const page = await browser.newPage();
     await page.goto('https://tinder.com/', {
         waitUntil: 'networkidle2'
@@ -39,11 +41,11 @@ require('dotenv').config();
         }, 5000)
     })
     console.log('login finish')
-    const [buttonAllow1] = await page.$x('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
-    buttonAllow1.click()
+    // const [buttonAllow1] = await page.$x('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
+    // buttonAllow1.click()
 
-    const [buttonAllow2] = await page.$x('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
-    buttonAllow2.click()
+    // const [buttonAllow2] = await page.$x('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
+    // buttonAllow2.click()
 
     // await browser.close();
 
