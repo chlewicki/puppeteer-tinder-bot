@@ -93,8 +93,8 @@ class Tinder {
     const client = await page.target().createCDPSession();
     await client.send("Network.enable");
     await client.send("Emulation.setGeolocationOverride", {
-        latitude: 52.2412786,
-        longitude: 21.0898869,
+        latitude: parseFloat(process.env.LATITUDE),
+        longitude: parseFloat(process.env.LONGITUDE),
         accuracy: 100
     });
 
