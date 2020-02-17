@@ -16,5 +16,5 @@ Open terminal
 $ npm i
 
 # run the app
-$ node sexapp
+$ node sex_app
 ```
